@@ -1,0 +1,57 @@
+[
+  {
+    "id": "1",
+    "title": "Producto Innovador",
+    "description": "Este producto innovador cambiará tu vida. Con tecnología de última generación, ofrece soluciones únicas para tus necesidades diarias.",
+    "code": "PROD001",
+    "price": 199.99,
+    "status": true,
+    "stock": 50,
+    "category": "Electrónica",
+    "thumbnails": ["img/producto1-1.jpg", "img/producto1-2.jpg"]
+  },
+  {
+    "id": "2",
+    "title": "Producto Eco-Friendly",
+    "description": "Diseñado para el usuario consciente del medio ambiente. Hecho con materiales reciclados y sostenible, este producto es tanto elegante como ecológico.",
+    "code": "PROD002",
+    "price": 149.99,
+    "status": true,
+    "stock": 30,
+    "category": "Hogar",
+    "thumbnails": ["img/producto2-1.jpg", "img/producto2-2.jpg"]
+  },
+  {
+    "id": "3",
+    "title": "Producto de Lujo",
+    "description": "Un toque de lujo para aquellos con gustos refinados. Este producto combina calidad superior con un diseño elegante y sofisticado.",
+    "code": "PROD003",
+    "price": 299.99,
+    "status": true,
+    "stock": 20,
+    "category": "Moda",
+    "thumbnails": ["img/producto3-1.jpg", "img/producto3-2.jpg"]
+  },
+  {
+    "id": "4",
+    "title": "Producto Deportivo",
+    "description": "Ideal para los entusiastas del deporte. Diseñado para mejorar tu rendimiento y ayudarte a alcanzar tus metas deportivas.",
+    "code": "PROD004",
+    "price": 89.99,
+    "status": true,
+    "stock": 100,
+    "category": "Deportes",
+    "thumbnails": ["img/producto4-1.jpg", "img/producto4-2.jpg"]
+  },
+  {
+    "id": "5",
+    "title": "Producto para Niños",
+    "description": "Diversión y aprendizaje en un solo paquete. Este producto educativo y divertido es perfecto para los más pequeños de la casa.",
+    "code": "PROD005",
+    "price": 49.99,
+    "status": true,
+    "stock": 200,
+    "category": "Juguetes",
+    "thumbnails": ["img/producto5-1.jpg", "img/producto5-2.jpg"]
+  }
+]

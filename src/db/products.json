@@ -1,0 +1,63 @@
+[
+  {
+    "id": "1",
+    "title": "Creality Ender 3 V2",
+    "description": "La Creality Ender 3 V2 es una impresora 3D asequible y fácil de usar, perfecta para principiantes y entusiastas del bricolaje.",
+    "code": "PRT001",
+    "price": 259.99,
+    "status": true,
+    "stock": 20,
+    "category": "3D",
+    "thumbnails": [
+      "img/creality-ender-3-v2-1.jpg",
+      "img/creality-ender-3-v2-2.jpg"
+    ]
+  },
+  {
+    "id": "2",
+    "title": "Anycubic i3 Mega",
+    "description": "La Anycubic i3 Mega ofrece una excelente calidad de impresión y estabilidad gracias a su estructura robusta. Ideal para proyectos complejos.",
+    "code": "PRT002",
+    "price": 299.99,
+    "status": true,
+    "stock": 15,
+    "category": "3D",
+    "thumbnails": ["img/anycubic-i3-mega-1.jpg", "img/anycubic-i3-mega-2.jpg"]
+  },
+  {
+    "id": "3",
+    "title": "Prusa i3 MK3S+",
+    "description": "La Prusa i3 MK3S+ es conocida por su alta calidad de impresión y su fiabilidad. Perfecta para profesionales y makers avanzados.",
+    "code": "PRT003",
+    "price": 749.99,
+    "status": true,
+    "stock": 10,
+    "category": "3D",
+    "thumbnails": ["img/prusa-i3-mk3s-1.jpg", "img/prusa-i3-mk3s-2.jpg"]
+  },
+  {
+    "id": "4",
+    "title": "FlashForge Adventurer 3",
+    "description": "La FlashForge Adventurer 3 es compacta y fácil de usar, con una conectividad Wi-Fi y una cámara incorporada para monitorear las impresiones.",
+    "code": "PRT004",
+    "price": 399.99,
+    "status": true,
+    "stock": 25,
+    "category": "3D",
+    "thumbnails": [
+      "img/flashforge-adventurer-3-1.jpg",
+      "img/flashforge-adventurer-3-2.jpg"
+    ]
+  },
+  {
+    "id": "5",
+    "title": "Elegoo Mars 2 Pro",
+    "description": "La Elegoo Mars 2 Pro es una impresora 3D de resina con una excelente resolución y durabilidad. Ideal para la creación de modelos detallados.",
+    "code": "PRT005",
+    "price": 349.99,
+    "status": true,
+    "stock": 30,
+    "category": "3D",
+    "thumbnails": ["img/elegoo-mars-2-pro-1.jpg", "img/elegoo-mars-2-pro-2.jpg"]
+  }
+]

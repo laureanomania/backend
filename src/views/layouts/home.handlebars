@@ -1,0 +1,39 @@
+<html>
+  <head>
+    <title>Productos</title>
+    <style>
+      body { background-color: black; color: #D3D3D3; /* Gris claro */
+      font-family: 'Roboto', sans-serif; text-align: center; } h1 { text-align:
+      center; text-shadow: 2px 2px 4px #FFA500; /* Sombra dorada más intensa */
+      } h2 { text-align: center; } ul { list-style-type: none; padding: 0; } li
+      { font-size: 1.5em; margin: 10px 0; } pre { background-color: black;
+      color: #D3D3D3; /* Gris claro */ padding: 20px; font-family: 'Roboto',
+      sans-serif; text-align: center; overflow-x: auto; }
+    </style>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto&display=swap"
+      rel="stylesheet"
+    />
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+      const socket = io(); socket.on('productListUpdate', (products) => { const
+      productListElement = document.getElementById('product-list');
+      productListElement.textContent = JSON.stringify(products, null, 2); });
+      document.addEventListener('DOMContentLoaded', () => { const
+      productListElement = document.getElementById('product-list');
+      fetch('/api/products') .then(response => response.json()) .then(products
+      => { productListElement.textContent = JSON.stringify(products, null, 2);
+      }); });
+    </script>
+  </head>
+  <body>
+    <h1>Lista de Productos</h1>
+    <ul>
+      {{#each products}}
+        <li>{{this.name}} - ${{this.price}} - {{this.type}}</li>
+      {{/each}}
+    </ul>
+
+    <pre id="product-list"></pre>
+  </body>
+</html>

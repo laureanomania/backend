@@ -1,0 +1,81 @@
+<html>
+  <head>
+    <title>Productos en Tiempo Real</title>
+    <style>
+      body { background-color: black; color: #D3D3D3; /* Gris claro */
+      font-family: 'Roboto', sans-serif; text-align: center; } h1 { text-align:
+      center; text-shadow: 2px 2px 4px #FFA500; /* Sombra dorada más intensa */
+      } h2 { text-align: center; } ul { list-style-type: none; padding: 0; } li
+      { font-size: 1em; /* Tamaño de fuente más pequeño para la tarjeta */
+      margin: 5px auto; /* Márgenes superior e inferior más pequeños y centrado
+      */ border: 1px solid #D3D3D3; /* Gris claro */ border-radius: 10px; /*
+      Bordes redondeados */ padding: 5px; /* Padding más pequeño */ max-width:
+      300px; /* Ancho máximo de la tarjeta */ text-align: center; /* Texto
+      centrado */ } form { margin: 20px 0; } input, button { font-size: 1em;
+      padding: 10px; margin: 5px; } button { background-color: #F5F5DC; /* Color
+      crema */ border: none; border-radius: 5px; /* Bordes redondeados */
+      cursor: pointer; font-size: 0.8em; /* Tamaño de fuente más pequeño */
+      padding: 5px 10px; /* Padding más pequeño */ } button:hover {
+      background-color: #E5E5C1; /* Crema más oscuro al pasar el ratón */ } pre
+      { background-color: black; color: #D3D3D3; /* Gris claro */ padding: 20px;
+      font-family: 'Roboto', sans-serif; text-align: center; overflow-x: auto; }
+    </style>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <h1>Lista de Productos en Tiempo Real</h1>
+    <ul id="product-list">
+      {{#each products}}
+        <li>
+          {{this.name}}
+          -
+          {{this.price}}
+          -
+          {{this.type}}
+          <button data-id="{{this.id}}" class="delete-product">Eliminar</button>
+        </li>
+      {{/each}}
+    </ul>
+
+    <form id="product-form">
+      <input type="text" id="product-name" placeholder="Nombre del Producto" />
+      <input
+        type="number"
+        id="product-price"
+        placeholder="Precio del Producto"
+      />
+      <input type="text" id="product-type" placeholder="Tipo de Producto" />
+      <button type="submit">Agregar Producto</button>
+    </form>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+      const socket = io(); const productList =
+      document.getElementById('product-list'); const productForm =
+      document.getElementById('product-form'); const productNameInput =
+      document.getElementById('product-name'); const productPriceInput =
+      document.getElementById('product-price'); const productTypeInput =
+      document.getElementById('product-type'); socket.on('productListUpdate',
+      (products) => { productList.innerHTML = ''; products.forEach(product => {
+      const li = document.createElement('li'); li.textContent = `${product.name}
+      - $${product.price} - ${product.type}`; const deleteButton =
+      document.createElement('button'); deleteButton.textContent = 'Eliminar';
+      deleteButton.setAttribute('data-id', product.id);
+      deleteButton.classList.add('delete-product');
+      li.appendChild(deleteButton); productList.appendChild(li); }); });
+      productForm.addEventListener('submit', (e) => { e.preventDefault(); const
+      productName = productNameInput.value; const productPrice =
+      productPriceInput.value; const productType = productTypeInput.value; if
+      (productName && productPrice && productType) { socket.emit('newProduct', {
+      name: productName, price: productPrice, type: productType });
+      productNameInput.value = ''; productPriceInput.value = '';
+      productTypeInput.value = ''; } }); productList.addEventListener('click',
+      (e) => { if (e.target.classList.contains('delete-product')) { const
+      productId = e.target.getAttribute('data-id'); socket.emit('deleteProduct',
+      productId); } });
+    </script>
+  </body>
+</html>
